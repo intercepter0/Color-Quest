@@ -1,9 +1,11 @@
 extends KinematicBody2D
 
+
 var velocity = Vector2.ZERO
 const SPEED = 4
 onready var j = get_node("../joystick")
 onready var sprite = get_node("player_sprite")
+onready var weapon = get_node("player_sprite/player_weapon")
 
 func _ready():
 	
@@ -27,13 +29,16 @@ func _physics_process(delta):
 	if velocity.x == 0 and velocity.y == 0:
 		velocity.x = j.output.x * SPEED
 		velocity.y = j.output.y * SPEED
-	
+		
 	if velocity.x == 0 and velocity.y == 0:
 		sprite.set_animation("idle")
 	else:
 		sprite.flip_h = velocity.x < 0
 		sprite.set_animation("run")
-	
+	if velocity.x > 0:
+		weapon.rotation = velocity.y*PI/8 + PI/2
+	elif velocity.x < 0:
+		weapon.rotation = -velocity.y*PI/8 - PI/2
 	position.x += velocity.x
 	position.y += velocity.y
 

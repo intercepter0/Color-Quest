@@ -1,24 +1,15 @@
 extends Sprite
 
 
-const SPRITE_CHANGE_SPEED = 8
+const SPRITE_CHANGE_SPEED = 10
 var frame_change_timer = 0
 var current_frame_number = -1
-var animation_range = null
-var animations = {
-	"run": [8,13],
-	"idle": [0,3]
-}
+var animation_range = [0,3]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-func set_animation(animation_name):
-	if animation_range != animations[animation_name] and false:
-		animation_range = animations[animation_name]
-		frame_change_timer = 0
-	
 
 func _physics_process(delta):
 	
