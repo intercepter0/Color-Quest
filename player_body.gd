@@ -3,9 +3,10 @@ extends KinematicBody2D
 
 var velocity = Vector2.ZERO
 const SPEED = 4
-onready var j = get_node("../joystick")
+onready var j = get_node("../ui/joystick")
 onready var sprite = get_node("player_sprite")
 onready var weapon = get_node("player_sprite/player_weapon")
+onready var buttons_panel = get_node("../ui/buttons_panel")
 
 func _ready():
 	
@@ -41,6 +42,8 @@ func _physics_process(delta):
 		weapon.rotation = -velocity.y*PI/8 - PI/2
 	position.x += velocity.x
 	position.y += velocity.y
+
+
 
 #func _process(delta):
 #	pass

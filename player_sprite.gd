@@ -24,7 +24,6 @@ func _physics_process(delta):
 	
 	frame_change_timer += delta*SPRITE_CHANGE_SPEED
 	if animation_range:
-		print(frame_change_timer)
 		current_frame_number = int(animation_range[0] + frame_change_timer)
 		if current_frame_number > animation_range[1]:
 			current_frame_number = animation_range[0]
